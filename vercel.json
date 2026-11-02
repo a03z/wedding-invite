@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/admin", "destination": "/api/admin" },
+    { "source": "/admin.csv", "destination": "/api/admin.csv" },
+    { "source": "/api/rsvp", "destination": "/api/rsvp" }
+  ]
+}
