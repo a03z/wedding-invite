@@ -2,12 +2,13 @@
   "name": "wedding-invite",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Свадебное приглашение с опросником и списком растений",
   "scripts": {
     "start": "node server.js"
   },
   "engines": {
-    "node": ">=22.5"
+    "node": "22.x || 24.x"
   },
   "dependencies": {
     "@upstash/redis": "^1.40.0"

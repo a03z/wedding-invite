@@ -1,67 +1,40 @@
-import { Redis } from '@upstash/redis';
-
-const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN,
-});
-
-function authorized(req) {
-  const header = req.headers.authorization || '';
-  if (!header.startsWith('Basic ')) return false;
-  try {
-    const decoded = Buffer.from(header.slice(6), 'base64').toString('utf8');
-    const sep = decoded.indexOf(':');
-    if (sep < 0) return false;
-    return decoded.slice(0, sep) === 'admin' && decoded.slice(sep + 1) === process.env.ADMIN_PASSWORD;
-  } catch {
-    return false;
-  }
-}
+import { listRsvps, requireAdmin } from '../lib/guests.js';
 
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 }
 
 export default async function handler(req, res) {
-  if (!authorized(req)) {
-    res.setHeader('WWW-Authenticate', 'Basic realm="wedding", charset="UTF-8"');
-    return res.status(401).send('Нужен пароль');
-  }
+  if (!requireAdmin(req, res)) return;
 
-  const keys = await redis.keys('rsvp:*');
-  const rows = [];
-  for (const key of keys) {
-    const v = await redis.get(key);
-    if (v) rows.push(JSON.parse(v));
-  }
-  rows.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+  try {
+    const rows = await listRsvps();
+    const total = rows.length;
+    const alcohol = {};
+    const soft = {};
+    for (const row of rows) {
+      alcohol[row.alcohol] = (alcohol[row.alcohol] || 0) + 1;
+      soft[row.soft_drink] = (soft[row.soft_drink] || 0) + 1;
+    }
 
-  const total = rows.length;
-  const alcohol = {};
-  const soft = {};
-  for (const r of rows) {
-    alcohol[r.alcohol] = (alcohol[r.alcohol] || 0) + 1;
-    soft[r.soft_drink] = (soft[r.soft_drink] || 0) + 1;
-  }
-
-  const table = rows.length
-    ? `<table>
+    const table = rows.length
+      ? `<table>
        <thead><tr><th>#</th><th>Имя</th><th>Алкоголь</th><th>Безалкогольный</th><th>Когда</th></tr></thead>
        <tbody>${rows
          .map(
-           (r, i) => `<tr>
+           (row, i) => `<tr>
              <td>${i + 1}</td>
-             <td><strong>${escapeHtml(r.name)}</strong></td>
-             <td>${escapeHtml(r.alcohol)}</td>
-             <td>${escapeHtml(r.soft_drink)}</td>
-             <td class="muted">${new Date(r.created_at).toLocaleString('ru-RU')}</td>
+             <td><strong>${escapeHtml(row.name)}</strong></td>
+             <td>${escapeHtml(row.alcohol)}</td>
+             <td>${escapeHtml(row.soft_drink)}</td>
+             <td class="muted">${new Date(row.created_at).toLocaleString('ru-RU')}</td>
            </tr>`
          )
          .join('')}</tbody>
      </table>`
-    : '<p class="empty">Ответов пока нет</p>';
+      : '<p class="empty">Ответов пока нет</p>';
 
-  const html = `<!doctype html>
+    const html = `<!doctype html>
 <html lang="ru">
 <head>
 <meta charset="utf-8">
@@ -93,7 +66,11 @@ ${table}
 </body>
 </html>`;
 
-  res.setHeader('Content-Type', 'text/html; charset=utf-8');
-  res.setHeader('Cache-Control', 'no-store');
-  return res.status(200).send(html);
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    res.setHeader('Cache-Control', 'no-store');
+    return res.status(200).send(html);
+  } catch (error) {
+    console.error(error instanceof Error ? error.message : error);
+    return res.status(500).send('Не удалось прочитать ответы. Проверьте Upstash Redis и переменные окружения.');
+  }
 }
