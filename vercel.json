@@ -1,7 +1,13 @@
 {
-  "rewrites": [
-    { "source": "/admin", "destination": "/api/admin" },
-    { "source": "/admin.csv", "destination": "/api/admin.csv" },
-    { "source": "/api/rsvp", "destination": "/api/rsvp" }
+  "routes": [
+    { "src": "/admin", "dest": "/api/admin" },
+    { "src": "/admin.csv", "dest": "/api/admin.csv" },
+    { "src": "/api/rsvp", "dest": "/api/rsvp" },
+    { "src": "/plants/(.*)", "dest": "/public/plants/$1" },
+    { "src": "/style.css", "dest": "/public/style.css" },
+    { "src": "/app.js", "dest": "/public/app.js" },
+    { "src": "/tear-top.svg", "dest": "/public/tear-top.svg" },
+    { "src": "/tear-bottom.svg", "dest": "/public/tear-bottom.svg" },
+    { "src": "/(.*)", "dest": "/public/index.html" }
   ]
 }
