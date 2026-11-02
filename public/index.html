@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Даня и Апполинария — приглашение на свадьбу</title>
+  <meta name="description" content="Приглашение на свадьбу. Вместо букетов — комнатные растения. Опросник для гостей.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%8C%BF%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Neucha&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+
+    <!-- ↓ Замените имена, дату и место на свои -->
+    <div class="paper paper--invite">
+      <span class="tape" aria-hidden="true"></span>
+      <section class="sheet">
+        <p class="kicker">приглашение на свадьбу</p>
+        <h1>Даниил <span class="amp">&amp;</span> Апполинария</h1>
+        <p class="date">1 июля 2027</p>
+        <p class="lead">Дорогие друзья! В этот день нам хочется собрать рядом самых близких — тех, с кем хочется разделить и волнение, и радость.</p>
+        <p class="lead">Будем счастливы видеть вас. Пожалуйста, ответьте на пару вопросов ниже — так мы сможем всё подготовить.</p>
+
+        <blockquote>Вместо букетов будем рады комнатным растениям, которые останутся с нами надолго</blockquote>
+
+        <dl class="details">
+          <div><dt>Когда</dt><dd>1 июля 2027, 15:00</dd></div>
+          <div><dt>Где</dt><dd>г. Вологда, адрес уточним ближе к дате</dd></div>
+        </dl>
+
+        <a class="btn" href="#rsvp">Ответить на пару вопросов</a>
+      </section>
+    </div>
+
+    <div class="paper paper--plants" id="plants">
+      <span class="tape" aria-hidden="true"></span>
+      <section class="sheet">
+        <h2>Вместо букета — растение</h2>
+        <p>Если хочется прийти с подарком, выберите растение в горшке: оно останется у нас дома и будет напоминать о вас. Ниже — идеи и примерные цены в Вологде. Можно дарить любое, не обязательно из списка.</p>
+
+        <ul class="legend" aria-label="Обозначения">
+          <li><span class="badge badge--ok">✅ гипоаллергенно</span></li>
+          <li><span class="badge badge--warn">⚠️ аккуратно с соком</span></li>
+          <li><span class="badge badge--bad">⛔ не гипоаллергенно</span></li>
+        </ul>
+
+        <p class="fineprint">«Гипоаллергенно» здесь — про сок и запах, а не про пыльцу: комнатные растения почти не дают пыльцы в помещении. Если у кого-то тяжёлая аллергия, лучше обсудить растение с врачом. Цены ориентировочные (магазины Вологды и маркетплейсы, 2026) и зависят от размера и горшка.</p>
+
+        <p class="callout">Если сомневаетесь — дарите хлорофитум, ховею, калатею, геппертию, хавортию или седум: они самые безопасные.</p>
+
+        <ul class="plants">
+
+          <li class="plant is-warn">
+            <figure class="plant__photo">
+              <a href="https://www.pexels.com/photo/17619301/" target="_blank" rel="noopener" title="Фото: Pexels, лицензия Pexels">
+                <img src="/plants/monstera.jpg" alt="Монстера" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Монстера <small>Monstera deliciosa</small></h3>
+                <span class="price">≈ 1 500–4 000 ₽</span>
+              </div>
+              <span class="badge badge--warn">⚠️ аккуратно с соком</span>
+              <p>Сок с оксалатами раздражает кожу и слизистые, пыльцы нет. Пересаживать — в перчатках.</p>
+            </div>
+          </li>
+
+          <li class="plant is-ok">
+            <figure class="plant__photo">
+              <a href="https://commons.wikimedia.org/wiki/File:Strelitzia_nicolai_3.jpg" target="_blank" rel="noopener" title="Фото: Eric in SF, CC BY-SA 3.0">
+                <img src="/plants/strelitzia.jpg" alt="Стрелиция Николая" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Стрелиция Николая <small>Strelitzia nicolai</small></h3>
+                <span class="price">≈ 1 200–5 000 ₽</span>
+              </div>
+              <span class="badge badge--ok">✅ гипоаллергенно</span>
+              <p>Аллергенов не известно, в комнате почти не цветёт. Сок может слегка раздражать.</p>
+            </div>
+          </li>
+
+          <li class="plant is-bad">
+            <figure class="plant__photo">
+              <a href="https://commons.wikimedia.org/wiki/File:Colpfl05.jpg" target="_blank" rel="noopener" title="Фото: Louise Wolff (darina), CC BY-SA 3.0">
+                <img src="/plants/croton.jpg" alt="Кротон" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Кротон <small>Codiaeum variegatum</small></h3>
+                <span class="price">≈ 700–1 800 ₽</span>
+              </div>
+              <span class="badge badge--bad">⛔ не гипоаллергенно</span>
+              <p>Млечный сок — сильный контактный раздражитель. Не лучший выбор, если в доме дети или животные.</p>
+            </div>
+          </li>
+
+          <li class="plant is-ok">
+            <figure class="plant__photo">
+              <a href="https://commons.wikimedia.org/wiki/File:Hierbabuena_0611_Revised.jpg" target="_blank" rel="noopener" title="Фото: Dtarazona, Peter coxhead, Public domain">
+                <img src="/plants/chlorophytum.jpg" alt="Хлорофитум" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Хлорофитум <small>Chlorophytum comosum</small></h3>
+                <span class="price">≈ 350–800 ₽</span>
+              </div>
+              <span class="badge badge--ok">✅ гипоаллергенно</span>
+              <p>Один из самых безопасных: без запаха, сок почти не раздражает.</p>
+            </div>
+          </li>
+
+          <li class="plant is-bad">
+            <figure class="plant__photo">
+              <a href="https://www.pexels.com/photo/34181400/" target="_blank" rel="noopener" title="Фото: Pexels, лицензия Pexels">
+                <img src="/plants/ficus-benjamina.jpg" alt="Фикус Бенджамина" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Фикус Бенджамина <small>Ficus benjamina</small></h3>
+                <span class="price">≈ 900–2 500 ₽</span>
+              </div>
+              <span class="badge badge--bad">⛔ не гипоаллергенно</span>
+              <p>Латекс фикуса — известный аллерген, возможна перекрёстная реакция с латексом.</p>
+            </div>
+          </li>
+
+          <li class="plant is-warn">
+            <figure class="plant__photo">
+              <a href="https://commons.wikimedia.org/wiki/File:Scindapsus_pictus_01.jpg" target="_blank" rel="noopener" title="Фото: Kor!An (Корзун Андрей), CC BY-SA 3.0">
+                <img src="/plants/scindapsus.jpg" alt="Сциндапсус" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Сциндапсус <small>Scindapsus pictus</small></h3>
+                <span class="price">≈ 500–1 200 ₽</span>
+              </div>
+              <span class="badge badge--warn">⚠️ аккуратно с соком</span>
+              <p>Сок с оксалатами: при обрезке — перчатки. В воздух ничего не выделяет.</p>
+            </div>
+          </li>
+
+          <li class="plant is-bad">
+            <figure class="plant__photo">
+              <a href="https://www.pexels.com/photo/7084324/" target="_blank" rel="noopener" title="Фото: Pexels, лицензия Pexels">
+                <img src="/plants/ficus-lyrata.jpg" alt="Фикус лировидный" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Фикус лировидный <small>Ficus lyrata</small></h3>
+                <span class="price">≈ 1 800–5 000 ₽</span>
+              </div>
+              <span class="badge badge--bad">⛔ не гипоаллергенно</span>
+              <p>Как и у других фикусов, млечный сок — аллерген и раздражитель.</p>
+            </div>
+          </li>
+
+          <li class="plant is-ok">
+            <figure class="plant__photo">
+              <a href="https://www.pexels.com/photo/33448610/" target="_blank" rel="noopener" title="Фото: Pexels, лицензия Pexels">
+                <img src="/plants/calathea.jpg" alt="Калатея" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Калатея <small>Calathea</small></h3>
+                <span class="price">≈ 800–2 200 ₽</span>
+              </div>
+              <span class="badge badge--ok">✅ гипоаллергенно</span>
+              <p>Без запаха и пыльцы, сок не раздражает.</p>
+            </div>
+          </li>
+
+          <li class="plant is-warn">
+            <figure class="plant__photo">
+              <a href="https://commons.wikimedia.org/wiki/File:Hedera_helix_&#39;Buttercup&#39;_Urn_2000px.JPG" target="_blank" rel="noopener" title="Фото: Derek Ramsey (Ram-Man), CC BY-SA 3.0">
+                <img src="/plants/hedera.jpg" alt="Хедера, или плющ" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Хедера, или плющ <small>Hedera helix</small></h3>
+                <span class="price">≈ 350–800 ₽</span>
+              </div>
+              <span class="badge badge--warn">⚠️ аккуратно с соком</span>
+              <p>Сок содержит фалкаринол, возможен контактный дерматит. Не трогать без перчаток.</p>
+            </div>
+          </li>
+
+          <li class="plant is-ok">
+            <figure class="plant__photo">
+              <a href="https://www.pexels.com/photo/36346257/" target="_blank" rel="noopener" title="Фото: Pexels, лицензия Pexels">
+                <img src="/plants/crassula.jpg" alt="Крассула" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Крассула <small>Crassula ovata</small></h3>
+                <span class="price">≈ 400–900 ₽</span>
+              </div>
+              <span class="badge badge--ok">✅ гипоаллергенно</span>
+              <p>Безопасна; сок слабо раздражает, не пробовать на вкус.</p>
+            </div>
+          </li>
+
+          <li class="plant is-ok">
+            <figure class="plant__photo">
+              <a href="https://commons.wikimedia.org/wiki/File:Potted_Fittonia_albivenis.jpg" target="_blank" rel="noopener" title="Фото: Why can&#39;t i get a cow, CC BY-SA 4.0">
+                <img src="/plants/fittonia.jpg" alt="Фиттония" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Фиттония <small>Fittonia albivenis</small></h3>
+                <span class="price">≈ 450–1 000 ₽</span>
+              </div>
+              <span class="badge badge--ok">✅ гипоаллергенно</span>
+              <p>Без запаха, безопасна.</p>
+            </div>
+          </li>
+
+          <li class="plant is-ok">
+            <figure class="plant__photo">
+              <a href="https://www.pexels.com/photo/7629828/" target="_blank" rel="noopener" title="Фото: Pexels, лицензия Pexels">
+                <img src="/plants/howea.jpg" alt="Ховея" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Ховея <small>Howea forsteriana</small></h3>
+                <span class="price">≈ 3 000–9 000 ₽</span>
+              </div>
+              <span class="badge badge--ok">✅ гипоаллергенно</span>
+              <p>Одна из лучших для аллергиков: нет пахучих цветов, листья легко протирать.</p>
+            </div>
+          </li>
+
+          <li class="plant is-ok">
+            <figure class="plant__photo">
+              <a href="https://commons.wikimedia.org/wiki/File:1_Haworthia_cooperi_-_Kirstenbosch.jpg" target="_blank" rel="noopener" title="Фото: Abu Shawka, CC0">
+                <img src="/plants/haworthia-cooperi.jpg" alt="Хавортия Купера" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Хавортия Купера <small>Haworthia cooperi</small></h3>
+                <span class="price">≈ 400–900 ₽</span>
+              </div>
+              <span class="badge badge--ok">✅ гипоаллергенно</span>
+              <p>Суккулент, безопасен.</p>
+            </div>
+          </li>
+
+          <li class="plant is-ok">
+            <figure class="plant__photo">
+              <a href="https://www.pexels.com/photo/31091865/" target="_blank" rel="noopener" title="Фото: Pexels, лицензия Pexels">
+                <img src="/plants/sedum-morganianum.jpg" alt="Седум Моргана" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Седум Моргана <small>Sedum morganianum</small></h3>
+                <span class="price">≈ 500–1 000 ₽</span>
+              </div>
+              <span class="badge badge--ok">✅ гипоаллергенно</span>
+              <p>Безопасен, только не пробовать на вкус.</p>
+            </div>
+          </li>
+
+          <li class="plant is-ok">
+            <figure class="plant__photo">
+              <a href="https://commons.wikimedia.org/wiki/File:CalatheaLancifolia.jpg" target="_blank" rel="noopener" title="Фото: Chhe, Public domain">
+                <img src="/plants/goeppertia.jpg" alt="Геппертия Инсигнис" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Геппертия Инсигнис <small>Goeppertia insignis</small></h3>
+                <span class="price">≈ 900–2 000 ₽</span>
+              </div>
+              <span class="badge badge--ok">✅ гипоаллергенно</span>
+              <p>Без запаха и пыльцы, безопасна.</p>
+            </div>
+          </li>
+
+          <li class="plant is-warn">
+            <figure class="plant__photo">
+              <a href="https://commons.wikimedia.org/wiki/File:Hoya-kerrii_flowers_op.jpg" target="_blank" rel="noopener" title="Фото: Hobbykafe, CC BY-SA 3.0">
+                <img src="/plants/hoya-kerrii.jpg" alt="Хойя Керри" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Хойя Керри <small>Hoya kerrii</small></h3>
+                <span class="price">≈ 700–1 600 ₽</span>
+              </div>
+              <span class="badge badge--warn">⚠️ аккуратно с соком</span>
+              <p>Млечный сок слабо раздражает; цветы пахнут — не для чувствительных к запахам.</p>
+            </div>
+          </li>
+
+          <li class="plant is-warn">
+            <figure class="plant__photo">
+              <a href="https://www.pexels.com/photo/35060566/" target="_blank" rel="noopener" title="Фото: Pexels, лицензия Pexels">
+                <img src="/plants/hoya-carnosa.jpg" alt="Хойя карноза компакта" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Хойя карноза компакта <small>Hoya carnosa «Compacta»</small></h3>
+                <span class="price">≈ 800–1 800 ₽</span>
+              </div>
+              <span class="badge badge--warn">⚠️ аккуратно с соком</span>
+              <p>Слабый млечный сок и сильный аромат при цветении.</p>
+            </div>
+          </li>
+
+          <li class="plant is-ok">
+            <figure class="plant__photo">
+              <a href="https://commons.wikimedia.org/wiki/File:Ponytail_Palm_Houseplant.jpg" target="_blank" rel="noopener" title="Фото: Wcedmisten, CC BY-SA 4.0">
+                <img src="/plants/beaucarnea.jpg" alt="Бокарнея отогнутая" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Бокарнея отогнутая <small>Beaucarnea recurvata</small></h3>
+                <span class="price">≈ 1 500–4 500 ₽</span>
+              </div>
+              <span class="badge badge--ok">✅ гипоаллергенно</span>
+              <p>Безопасна, пахучих цветов нет.</p>
+            </div>
+          </li>
+
+          <li class="plant is-ok">
+            <figure class="plant__photo">
+              <a href="https://commons.wikimedia.org/wiki/File:Haworthia_truncata_1.jpg" target="_blank" rel="noopener" title="Фото: Stan Shebs, CC BY-SA 3.0">
+                <img src="/plants/haworthia-truncata.jpg" alt="Хавортия усечённая" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Хавортия усечённая <small>Haworthia truncata</small></h3>
+                <span class="price">≈ 900–2 500 ₽</span>
+              </div>
+              <span class="badge badge--ok">✅ гипоаллергенно</span>
+              <p>Безопасна.</p>
+            </div>
+          </li>
+
+          <li class="plant is-warn">
+            <figure class="plant__photo">
+              <a href="https://www.pexels.com/photo/4744882/" target="_blank" rel="noopener" title="Фото: Pexels, лицензия Pexels">
+                <img src="/plants/senecio.jpg" alt="Сенецио Виталис" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Сенецио Виталис <small>Senecio vitalis</small></h3>
+                <span class="price">≈ 500–1 200 ₽</span>
+              </div>
+              <span class="badge badge--warn">⚠️ аккуратно с соком</span>
+              <p>Сок токсичен при попадании в глаза и рот, может раздражать кожу.</p>
+            </div>
+          </li>
+
+          <li class="plant is-bad">
+            <figure class="plant__photo">
+              <a href="https://www.pexels.com/photo/236466/" target="_blank" rel="noopener" title="Фото: Pexels, лицензия Pexels">
+                <img src="/plants/adenium.jpg" alt="Адения Перрьери" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Адения Перрьери <small>Adenium perrieri</small></h3>
+                <span class="price">≈ 2 000–6 000 ₽</span>
+              </div>
+              <span class="badge badge--bad">⛔ не гипоаллергенно</span>
+              <p>Сок содержит сердечные гликозиды, опасен при контакте и проглатывании.</p>
+            </div>
+          </li>
+
+          <li class="plant is-bad">
+            <figure class="plant__photo">
+              <a href="https://commons.wikimedia.org/wiki/File:Alocasia_portei_(Philippines)_young_plant_01.jpg" target="_blank" rel="noopener" title="Фото: Obsidian Soul, CC0">
+                <img src="/plants/alocasia.jpg" alt="Алоказия «Летающий кальмар»" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Алоказия «Летающий кальмар» <small>Alocasia «Flying Squid»</small></h3>
+                <span class="price">≈ 1 800–4 500 ₽</span>
+              </div>
+              <span class="badge badge--bad">⛔ не гипоаллергенно</span>
+              <p>Оксалаты в соке сильно раздражают слизистые. Не для дома с детьми и животными.</p>
+            </div>
+          </li>
+
+          <li class="plant is-ok">
+            <figure class="plant__photo">
+              <a href="https://www.pexels.com/photo/37484960/" target="_blank" rel="noopener" title="Фото: Pexels, лицензия Pexels">
+                <img src="/plants/asplenium.jpg" alt="Асплениум Криспи" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Асплениум Криспи <small>Asplenium «Crispy»</small></h3>
+                <span class="price">≈ 1 000–2 500 ₽</span>
+              </div>
+              <span class="badge badge--ok">✅ гипоаллергенно</span>
+              <p>Папоротник, спор в комнате почти нет; безопасен.</p>
+            </div>
+          </li>
+
+          <li class="plant is-ok">
+            <figure class="plant__photo">
+              <a href="https://commons.wikimedia.org/wiki/File:Gardenology.org-IMG_0971_bbg09.jpg" target="_blank" rel="noopener" title="Фото: Raffi Kojian, CC BY-SA 3.0">
+                <img src="/plants/christia.jpg" alt="Кристия обкордата" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Кристия обкордата <small>Christia obcordata</small></h3>
+                <span class="price">≈ 1 200–3 000 ₽</span>
+              </div>
+              <span class="badge badge--ok">✅ гипоаллергенно</span>
+              <p>Данных об аллергенности мало, считается безопасной; понаблюдайте за реакцией.</p>
+            </div>
+          </li>
+
+          <li class="plant is-ok">
+            <figure class="plant__photo">
+              <a href="https://commons.wikimedia.org/wiki/File:Cleistocactus_winteri_HabitusFlower_BotGard0906a.jpg" target="_blank" rel="noopener" title="Фото: Wikimedia Commons, CC BY-SA 3.0">
+                <img src="/plants/hildewintera.jpg" alt="Кактус Хильдевинтера" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Кактус Хильдевинтера <small>Hildewintera aureispina</small></h3>
+                <span class="price">≈ 500–1 200 ₽</span>
+              </div>
+              <span class="badge badge--ok">✅ гипоаллергенно</span>
+              <p>Безопасен, кроме колючек.</p>
+            </div>
+          </li>
+
+          <li class="plant is-ok">
+            <figure class="plant__photo">
+              <a href="https://www.pexels.com/photo/15100978/" target="_blank" rel="noopener" title="Фото: Pexels, лицензия Pexels">
+                <img src="/plants/sedum-burrito.jpg" alt="Очиток Буррито" loading="lazy" width="600" height="600">
+              </a>
+            </figure>
+            <div class="plant__body">
+              <div class="plant__top">
+                <h3>Очиток Буррито <small>Sedum burrito</small></h3>
+                <span class="price">≈ 450–900 ₽</span>
+              </div>
+              <span class="badge badge--ok">✅ гипоаллергенно</span>
+              <p>Безопасен.</p>
+            </div>
+          </li>
+
+        </ul>
+
+        <p class="fineprint">Средний букет в Вологде стоит 3 000–6 000 ₽ и живёт неделю. Растение из этого списка — от 350 ₽ и остаётся на годы.</p>
+      </section>
+    </div>
+
+    <div class="paper paper--rsvp" id="rsvp">
+      <span class="tape" aria-hidden="true"></span>
+      <section class="sheet">
+        <h2>Пара вопросов</h2>
+        <p>Чтобы всем хватило и вина, и колы. Пожалуйста, ответьте до 15 июня 2027.</p>
+
+        <form id="rsvp-form">
+          <label class="field">Как вас зовут
+            <input type="text" name="name" required maxlength="80" autocomplete="name" placeholder="Имя и фамилия">
+          </label>
+
+          <div class="choices">
+            <fieldset>
+              <legend>Что предпочитаете из алкоголя?</legend>
+              <label class="choice"><input type="radio" name="alcohol" value="Вино" required><span>Вино</span></label>
+              <label class="choice"><input type="radio" name="alcohol" value="Водка"><span>Водка</span></label>
+              <label class="choice"><input type="radio" name="alcohol" value="Безалкогольное"><span>Безалкогольное</span></label>
+            </fieldset>
+
+            <fieldset>
+              <legend>Что предпочитаете из безалкогольного?</legend>
+              <label class="choice"><input type="radio" name="soft_drink" value="Сок" required><span>Сок</span></label>
+              <label class="choice"><input type="radio" name="soft_drink" value="Кола"><span>Кола</span></label>
+              <label class="choice"><input type="radio" name="soft_drink" value="Спрайт"><span>Спрайт</span></label>
+            </fieldset>
+          </div>
+
+          <p class="form-status" role="status" aria-live="polite"></p>
+          <button type="submit">Отправить ответ</button>
+          <p class="hint">Передумаете — отправьте ещё раз, ответ обновится.</p>
+        </form>
+
+        <div class="thanks" id="thanks" hidden>
+          <p>Спасибо, <strong id="thanks-name"></strong>!</p>
+          <p>Ваш ответ записан. Будем очень рады видеть вас.</p>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <footer>Даниил и Апполинария · Вологда · 2027</footer>
+
+  <details class="credits credits--bottom">
+    <summary>Фотографии и лицензии</summary>
+    <ul>
+            <li><a href="https://www.pexels.com/photo/17619301/" target="_blank" rel="noopener">Монстера</a> — Pexels, лицензия Pexels</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Strelitzia_nicolai_3.jpg" target="_blank" rel="noopener">Стрелиция Николая</a> — Eric in SF, CC BY-SA 3.0</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Colpfl05.jpg" target="_blank" rel="noopener">Кротон</a> — Louise Wolff (darina), CC BY-SA 3.0</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Hierbabuena_0611_Revised.jpg" target="_blank" rel="noopener">Хлорофитум</a> — Dtarazona, Peter coxhead, Public domain</li>
+            <li><a href="https://www.pexels.com/photo/34181400/" target="_blank" rel="noopener">Фикус Бенджамина</a> — Pexels, лицензия Pexels</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Scindapsus_pictus_01.jpg" target="_blank" rel="noopener">Сциндапсус</a> — Kor!An (Корзун Андрей), CC BY-SA 3.0</li>
+            <li><a href="https://www.pexels.com/photo/7084324/" target="_blank" rel="noopener">Фикус лировидный</a> — Pexels, лицензия Pexels</li>
+            <li><a href="https://www.pexels.com/photo/33448610/" target="_blank" rel="noopener">Калатея</a> — Pexels, лицензия Pexels</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Hedera_helix_&#39;Buttercup&#39;_Urn_2000px.JPG" target="_blank" rel="noopener">Хедера, или плющ</a> — Derek Ramsey (Ram-Man), CC BY-SA 3.0</li>
+            <li><a href="https://www.pexels.com/photo/36346257/" target="_blank" rel="noopener">Крассула</a> — Pexels, лицензия Pexels</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Potted_Fittonia_albivenis.jpg" target="_blank" rel="noopener">Фиттония</a> — Why can&#39;t i get a cow, CC BY-SA 4.0</li>
+            <li><a href="https://www.pexels.com/photo/7629828/" target="_blank" rel="noopener">Ховея</a> — Pexels, лицензия Pexels</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:1_Haworthia_cooperi_-_Kirstenbosch.jpg" target="_blank" rel="noopener">Хавортия Купера</a> — Abu Shawka, CC0</li>
+            <li><a href="https://www.pexels.com/photo/31091865/" target="_blank" rel="noopener">Седум Моргана</a> — Pexels, лицензия Pexels</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:CalatheaLancifolia.jpg" target="_blank" rel="noopener">Геппертия Инсигнис</a> — Chhe, Public domain</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Hoya-kerrii_flowers_op.jpg" target="_blank" rel="noopener">Хойя Керри</a> — Hobbykafe, CC BY-SA 3.0</li>
+            <li><a href="https://www.pexels.com/photo/35060566/" target="_blank" rel="noopener">Хойя карноза компакта</a> — Pexels, лицензия Pexels</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Ponytail_Palm_Houseplant.jpg" target="_blank" rel="noopener">Бокарнея отогнутая</a> — Wcedmisten, CC BY-SA 4.0</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Haworthia_truncata_1.jpg" target="_blank" rel="noopener">Хавортия усечённая</a> — Stan Shebs, CC BY-SA 3.0</li>
+            <li><a href="https://www.pexels.com/photo/4744882/" target="_blank" rel="noopener">Сенецио Виталис</a> — Pexels, лицензия Pexels</li>
+            <li><a href="https://www.pexels.com/photo/236466/" target="_blank" rel="noopener">Адения Перрьери</a> — Pexels, лицензия Pexels</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Alocasia_portei_(Philippines)_young_plant_01.jpg" target="_blank" rel="noopener">Алоказия «Летающий кальмар»</a> — Obsidian Soul, CC0</li>
+            <li><a href="https://www.pexels.com/photo/37484960/" target="_blank" rel="noopener">Асплениум Криспи</a> — Pexels, лицензия Pexels</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Gardenology.org-IMG_0971_bbg09.jpg" target="_blank" rel="noopener">Кристия обкордата</a> — Raffi Kojian, CC BY-SA 3.0</li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Cleistocactus_winteri_HabitusFlower_BotGard0906a.jpg" target="_blank" rel="noopener">Кактус Хильдевинтера</a> — Wikimedia Commons, CC BY-SA 3.0</li>
+            <li><a href="https://www.pexels.com/photo/15100978/" target="_blank" rel="noopener">Очиток Буррито</a> — Pexels, лицензия Pexels</li>
+    </ul>
+    <p>Фотографии с Pexels (лицензия Pexels) и Wikimedia Commons, уменьшены и обрезаны под квадрат. Авторы и лицензии открываются по ссылкам.</p>
+  </details>
+
+  <script src="/app.js"></script>
+</body>
+</html>
