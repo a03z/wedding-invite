@@ -34,17 +34,14 @@ form.addEventListener('submit', async (event) => {
     if (!RSVP_URL.startsWith('https://script.google.com/')) {
       throw new Error('Опросник ещё не подключён: вставьте URL Apps Script в public/app.js');
     }
-    // text/plain — чтобы простой запрос прошёл CORS без preflight
-    const response = await fetch(RSVP_URL, {
+    // Apps Script не отдаёт CORS-заголовки, поэтому ответ непрозрачный:
+    // resolve = доставлено, валидность формы гарантирует браузер
+    await fetch(RSVP_URL, {
       method: 'POST',
+      mode: 'no-cors',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify({ ...data, guest_id: getGuestId() }),
     });
-    const result = await response.json().catch(() => ({}));
-
-    if (!result.ok) {
-      throw new Error(result.error || 'Не получилось отправить, попробуйте ещё раз');
-    }
 
     thanksName.textContent = data.name.trim();
     form.hidden = true;
