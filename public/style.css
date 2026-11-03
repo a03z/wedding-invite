@@ -79,8 +79,8 @@ main {
       rgba(96, 132, 178, 0.07) calc(var(--rule) + 0.7px) calc(var(--rule) + 1.3px)
     );
 
-  -webkit-mask-image: url("/tear-top.svg"), linear-gradient(#000, #000), url("/tear-bottom.svg");
-  mask-image: url("/tear-top.svg"), linear-gradient(#000, #000), url("/tear-bottom.svg");
+  -webkit-mask-image: url("tear-top.svg"), linear-gradient(#000, #000), url("tear-bottom.svg");
+  mask-image: url("tear-top.svg"), linear-gradient(#000, #000), url("tear-bottom.svg");
   -webkit-mask-size: 100% var(--tear), 100% calc(100% - var(--tear) * 2), 100% var(--tear);
   mask-size: 100% var(--tear), 100% calc(100% - var(--tear) * 2), 100% var(--tear);
   -webkit-mask-position: top, center, bottom;
