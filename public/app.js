@@ -1,5 +1,8 @@
 'use strict';
 
+// URL веб-приложения Apps Script — как получить, см. README (раздел «Ответы гостей»)
+const RSVP_URL = 'https://script.google.com/macros/s/AKfycbxuEQpFqlevZzJvpM1xdSSA5wjhjd4VfFJcO9TwPGVfmuPLZFBqFGQomREWJARMh8k/exec';
+
 const form = document.querySelector('#rsvp-form');
 const status = form.querySelector('.form-status');
 const button = form.querySelector('button[type="submit"]');
@@ -28,14 +31,18 @@ form.addEventListener('submit', async (event) => {
   status.textContent = 'Отправляем…';
 
   try {
-    const response = await fetch('/api/rsvp', {
+    if (!RSVP_URL.startsWith('https://script.google.com/')) {
+      throw new Error('Опросник ещё не подключён: вставьте URL Apps Script в public/app.js');
+    }
+    // text/plain — чтобы простой запрос прошёл CORS без preflight
+    const response = await fetch(RSVP_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify({ ...data, guest_id: getGuestId() }),
     });
     const result = await response.json().catch(() => ({}));
 
-    if (!response.ok) {
+    if (!result.ok) {
       throw new Error(result.error || 'Не получилось отправить, попробуйте ещё раз');
     }
 
